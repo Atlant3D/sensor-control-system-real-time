@@ -37,20 +37,23 @@ public:
 class PIDController
 {
 private:
-    double kp, ki, kd;
-    double prev_error;
-    double integral;
+    double kp, ki, kd; // PID gains
+    double prev_error; // Error from previous iteration
+    double integral;   // Integral of error over time
 
 public:
+    // Constructor that initializes the PID gains
     PIDController(double kp, double ki, double kd) : kp(kp), ki(ki), kd(kd), prev_error(0), integral(0) {}
 
+    // Calculates the output of the PID controller for a given setpoint and process variable
     double control(double setpoint, double pv)
     {
-        // TODO: Your implementation here
-
-        double error = setpoint - pv;
-
-        return 0.0;
+        double error = setpoint - pv;                                 // Calculate the error
+        double derivative = error - prev_error;                       // Calculate the derivative of the error
+        integral += error;                                            // Calculate the integral of the error
+        double output = kp * error + ki * integral + kd * derivative; // Calculate the output
+        prev_error = error;                                           // Store the error for the next iteration
+        return output;                                                // Return the output
     }
 };
 

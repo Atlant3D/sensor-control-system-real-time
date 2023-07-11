@@ -78,10 +78,10 @@ pressure_data = []
 
 # Add horizontal lines for the setpoints
 temp_setpoint_line = ax.axhline(
-    y=20, color="r", linestyle="--", label="Temperature Setpoint"
+    y=50, color="r", linestyle="--", label="Temperature Setpoint"
 )
 pressure_setpoint_line = ax.axhline(
-    y=1, color="g", linestyle="--", label="Pressure Setpoint"
+    y=2.5, color="g", linestyle="--", label="Pressure Setpoint"
 )
 
 
