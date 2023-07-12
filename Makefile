@@ -1,6 +1,6 @@
 # Variables
 CXX = g++
-CXXFLAGS = -g -Wall -m64 -shared 
+CXXFLAGS = -g -Wall -m64 -shared -fPIC 
 LIBS = -lpthread
 TARGET = control_system.dll
 SRC = control_system.cpp
